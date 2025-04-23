@@ -39,6 +39,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             isAutoscrolling = true;
             scrollInterval = setInterval(() => {
                 window.scrollBy(0, 10); // Scroll down by 10 pixels
+                // Check if button with class
+                // 'scaffold-finite-scroll__load-button' is visible
+                const loadMoreButton = document.querySelector(
+                    ".scaffold-finite-scroll__load-button"
+                );
+                if (loadMoreButton) {
+                    loadMoreButton.click();
+                }
             }, 25); // Adjust the scroll speed
         } else {
             // Stop autoscroll
